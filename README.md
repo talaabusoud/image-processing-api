@@ -42,3 +42,11 @@ assets/full/   - Original full-size images
 assets/thumb/  - Cached resized thumbnails
 tests/         - Jasmine test specs
 ```
+## Adding Images
+Place `.jpg` images in the `assets/full/` directory.
+Use the filename (without extension) as the `filename` query parameter.
+
+## Troubleshooting
+- Ensure `assets/full/` contains at least one `.jpg` image
+- Run `npm run build` before `npm start`
+- Processed thumbnails are cached in `assets/thumb/`

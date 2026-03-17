@@ -56,12 +56,14 @@ router.get('/', async (req: Request, res: Response): Promise<void> => {
   try {
     // caching: serve the existing thumb if it exists
     if (imageExists(thumbPath)) {
+      process.stdout.write(`[${new Date().toISOString()}] Cache hit - Serving existing thumb: ${filename}\n`);
       res.sendFile(thumbPath);
       return;
     }
 
     // processing & caching the new image
     const outputPath = await processImage(options);
+    process.stdout.write(`[${new Date().toISOString()}] Processed new image: ${filename} at ${parsedWidth}x${parsedHeight}\n`);
     res.sendFile(outputPath);
   } catch (err) {
     res.status(500).json({ error: 'Failed to process image' });
