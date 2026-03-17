@@ -18,7 +18,9 @@ router.get('/', async (req: Request, res: Response): Promise<void> => {
   }
 
   if (!width || !height) {
-    res.status(400).json({ error: 'Missing required parameters: width and height' });
+    res
+      .status(400)
+      .json({ error: 'Missing required parameters: width and height' });
     return;
   }
 
@@ -31,7 +33,9 @@ router.get('/', async (req: Request, res: Response): Promise<void> => {
   }
 
   if (parsedWidth <= 0 || parsedHeight <= 0) {
-    res.status(400).json({ error: 'Width and height must be positive numbers' });
+    res
+      .status(400)
+      .json({ error: 'Width and height must be positive numbers' });
     return;
   }
 

@@ -2,8 +2,8 @@ import sharp from 'sharp';
 import path from 'path';
 import fs from 'fs';
 
-const fullDir = path.join(__dirname, '../../assets/full');
-const thumbDir = path.join(__dirname, '../../assets/thumb');
+const fullDir = path.join(process.cwd(), 'assets/full');
+const thumbDir = path.join(process.cwd(), 'assets/thumb');
 
 export interface ProcessImageOptions {
   filename: string;
@@ -43,10 +43,7 @@ export const processImage = async (
     fs.mkdirSync(thumbDir, { recursive: true });
   }
 
-  await sharp(inputPath)
-    .resize(width, height)
-    .jpeg()
-    .toFile(outputPath);
+  await sharp(inputPath).resize(width, height).jpeg().toFile(outputPath);
 
   return outputPath;
 };

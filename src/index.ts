@@ -17,7 +17,7 @@ app.get('/', (req: Request, res: Response): void => {
 // start the server only when not in test
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    process.stdout.write(`Server running at http://localhost:${PORT}\n`);
   });
 }
 

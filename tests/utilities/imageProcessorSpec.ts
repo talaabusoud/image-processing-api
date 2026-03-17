@@ -1,5 +1,9 @@
-import { processImage, imageExists, getFullPath, getThumbPath } from '../../src/utilities/imageProcessor';
-import path from 'path';
+import {
+  processImage,
+  imageExists,
+  getFullPath,
+  getThumbPath,
+} from '../../src/utilities/imageProcessor';
 import fs from 'fs';
 
 describe('imageProcessor utility', () => {
